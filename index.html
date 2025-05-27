@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en" style="color-scheme: light dark;">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="styles/index.css">
+  <script src="scripts/main.js" defer></script>
+  <style>
+    #about, #reviews, #catalogBlock {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="logo-container">
+    <img src="logo.jpg" alt="Логотип" class="logo">
+  </div>
+  <nav class="nav">
+    <a href="#" id="homeBtn">Главная</a>
+    <a href="#" id="catalogBtn">Каталог</a>
+    <a href="#" id="aboutBtn">О нас</a>
+    <a href="#" id="reviewsBtn">Отзывы</a>
+  </nav>
+</header>
+
+<section class="title-page" id="titlePage">
+ <div class="auth-container">
+  <img src="logo.jpg" alt="Логотип" class="logo">
+  <form class="register-form" method="POST" action="register.php">
+  <input type="text" name="name" placeholder="Ваше имя" required>
+  <input type="email" name="email" placeholder="Email" required>
+  <input type="password" name="password" placeholder="Пароль" required>
+  <button type="submit">Зарегистрироваться</button>
+</form>
+ </div>
+</section>
+
+
+
+
+<div class="wrapper" id="catalogBlock" style="display:none">
+  <div class="options">
+    <div class="option active" style="background-image: url(public/images/1.jpg);">
+      <div class="caption">Холодильники</div>
+    </div>
+    <div class="option" style="background-image: url(public/images/2.jpg);">
+      <div class="caption">Вытяжки кухонные</div>
+    </div>
+    <div class="option" style="background-image: url(public/images/3.jpg);">
+      <div class="caption">Плиты и духовки</div>
+    </div>
+    <div class="option" style="background-image: url(public/images/4.jpg);">
+      <div class="caption">Мультиварки</div>
+    </div>
+    <div class="option" style="background-image: url(public/images/5.jpg);">
+      <div class="caption">Измельчители</div>
+    </div>
+    <div class="option" style="background-image: url(public/images/6.jpg);">
+      <div class="caption">Микроволновые печи</div>
+    </div>
+  </div>
+</div>
+
+<section id="about" class="about-section" style="display:none;">
+  <h2>О нас</h2>
+  <p>Мы — команда профессионалов, предлагающая качественную бытовую технику по доступным ценам. Работаем с 2010 года и гордимся доверием тысяч клиентов по всей стране.</p>
+  
+  <p>Наша миссия — сделать вашу повседневную жизнь удобнее и комфортнее. Мы сотрудничаем только с проверенными производителями, предоставляем официальную гарантию и поддерживаем высокий уровень сервиса.</p>
+  
+  <p>В нашем каталоге вы найдете широкий ассортимент товаров: от холодильников и микроволновых печей до кухонных вытяжек и мультиварок. Мы постоянно обновляем ассортимент и следим за последними трендами в мире бытовой техники.</p>
+  
+  <div class="about-icons">
+    <div class="icon-item" data-tooltip="Наши товары проходят строгий контроль качества.">
+      <img src="public/icons/quality.png" alt="Качество" class="icon">
+      <p>Высокое качество</p>
+    </div>
+    <div class="icon-item" data-tooltip="Поддержка клиентов 24/7 для решения любых вопросов.">
+      <img src="public/icons/support.png" alt="Поддержка" class="icon">
+      <p>Круглосуточная поддержка</p>
+
+    </div>
+    <div class="icon-item" data-tooltip="Оперативная доставка по всей стране.">
+      <img src="public/icons/delivery.png" alt="Доставка" class="icon">
+      <p>Быстрая доставка</p>
+    </div>
+    <div class="icon-item" data-tooltip="Официальная гарантия на всю продукцию.">
+      <img src="public/icons/guarantee.png" alt="Гарантия" class="icon">
+      <p>Официальная гарантия</p>
+    </div>
+  </div>
+
+  <p>Спасибо, что выбираете нас!</p>
+</section>
+
+
+<section id="reviews" class="reviews-section" style="display:none;">
+  <div class="reviews-header">
+    <h2>ОТЗЫВЫ</h2>
+    <h2>Отзывы наших клиентов</h2>
+    <p>Мы ценим ваше мнение и стремимся стать лучше</p>
+
+    <div class="average-rating">
+      <span class="stars">⭐⭐⭐⭐⭐</span>
+      <span class="score">4.8 из 5</span>
+      <span class="count">(на основе 120 отзывов)</span>
+    </div>
+
+    <div class="reviews-controls">
+      <select id="sortReviews">
+        <option value="latest">Сначала новые</option>
+        <option value="highest">Сначала лучшие</option>
+        <option value="lowest">Сначала худшие</option>
+      </select>
+      <button id="leaveReviewBtn" class="btn">Оставить отзыв</button>
+    </div>
+  </div>
+
+  <div class="reviews-list" id="reviewsList">
+    <div class="review">
+      <h3>Александр</h3>
+      <p class="review-date">12 мая 2025</p>
+      <p class="review-text">Отличное качество и быстрая доставка! Рекомендую.</p>
+    </div>
+    <div class="review">
+      <h3>Марина</h3>
+      <p class="review-date">9 мая 2025</p>
+      <p class="review-text">Приятный сервис, но упаковка могла быть лучше.</p>
+    </div>
+    <div class="review">
+      <h3>Игорь</h3>
+      <p class="review-date">7 мая 2025</p>
+      <p class="review-text">Хороший выбор и вежливые консультанты. Буду заказывать ещё.</p>
+    </div>
+    <div class="review">
+      <h3>Ольга</h3>
+      <p class="review-date">5 мая 2025</p>
+      <p class="review-text">Доставка немного задержалась, но товар отличный.</p>
+    </div>
+    <div class="review">
+      <h3>Владимир</h3>
+      <p class="review-date">3 мая 2025</p>
+      <p class="review-text">Прекрасный магазин, всё пришло вовремя и в целости.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Модальное окно для отзыва -->
+<div id="reviewModal" class="modal">
+  <div class="modal-content">
+    <span id="closeModal" class="close">&times;</span>
+    <h2>Оставить отзыв</h2>
+    <form id="reviewForm" method="POST" action="save_review.php">
+      <input type="text" name="author" placeholder="Ваше имя" required />
+      <textarea name="text" placeholder="Ваш отзыв" required></textarea>
+      <label>
+        Рейтинг:
+        <select name="rating" required>
+          <option value="">Выберите</option>
+          <option value="5">⭐⭐⭐⭐⭐</option>
+          <option value="4">⭐⭐⭐⭐</option>
+          <option value="3">⭐⭐⭐</option>
+          <option value="2">⭐⭐</option>
+          <option value="1">⭐</option>
+        </select>
+      </label>
+      <button type="submit">Отправить</button>
+    </form>
+  </div>
+</div>
+
+<script>
+function initOptions() {
+  const options = document.querySelectorAll(".option");
+  options.forEach(option => {
+    option.addEventListener("click", () => {
+      options.forEach(o => o.classList.remove("active"));
+      option.classList.add("active");
+    });
+  });
+}
+
+function startAnimation() {
+  const options = document.querySelectorAll(".option");
+  let current = 0;
+  setInterval(() => {
+    options.forEach(o => o.classList.remove("active"));
+    options[current].classList.add("active");
+    current = (current + 1) % options.length;
+  }, 3000);
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const urlParams = new URLSearchParams(window.location.search);
+  const isRegistered = urlParams.get("registered");
+
+  const titlePage = document.getElementById("titlePage");
+  const catalogBlock = document.getElementById("catalogBlock");
+
+  if (isRegistered === "1") {
+    titlePage.style.display = "none";
+    catalogBlock.style.display = "block";
+
+    initOptions();
+    startAnimation();
+  }
+});
+</script>
+
+
+</body>
+</html>
+
+

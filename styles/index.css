@@ -1,0 +1,469 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --option-height: 500px;
+  --option-width: 120px;
+  --radius: 1.875rem;
+  --gutter: 10px;
+  --bg: #f5f5f5;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1f2020;
+  }
+}
+
+body {
+  background-color: var(--bg);
+  min-width: 320px;
+}
+
+.wrapper {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.options {
+  display: flex;
+  flex-direction: row;
+  min-width: 480px;
+  max-width: calc(var(--total-options) * 450px);
+  height: var(--option-height);
+  width: 100%;
+}
+
+.option {
+  background-color: color-mix(in srgb, var(--bg), CanvasText 10%);
+  margin: var(--gutter);
+  flex-grow: 1;
+  transform: scale(0.95);
+  opacity: 0.6;
+  cursor: pointer;
+  border-radius: var(--radius);
+  flex: 1 1 var(--option-width);
+  transition: flex-grow 1.25s cubic-bezier(.17, .84, .44, 1);
+  background-position: center;
+  background-size: cover;
+}
+
+.option:not(.active) {
+  cursor: pointer;
+}
+
+.option.active {
+  transform: scale(1.2);
+  flex-grow: var(--total-options);
+  opacity: 1;
+  z-index: 2;
+  flex-grow: 5;
+}
+/* Уточнение: данный брейкпоинт для max-width является sm. */
+/* max-width брейкпоинты имеют отступ (-0.02px), чтобы избежать перекрытия с min-width. */
+@media (max-width: 767.98px) {
+  .options {
+    flex-direction: column;
+    min-height: 100vh;
+    min-width: auto;
+  }
+}
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+.logo {
+  height: 120vh;
+  margin: 0;
+  object-fit: contain;
+  border-radius: 1rem;
+  box-shadow: 0 4px 8px rgba(242, 229, 229, 0.986);
+}
+.title-page {
+   background-image: url('22.jpg'); /* или .png */
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover; /* чтобы картинка покрывала весь блок */
+  position: relative; /* Это нужно, чтобы .auth-container с absolute работал правильно */
+  padding-left: 5%; /* расстояние от левого края */
+  display: flex;
+  flex-direction: flex-start;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  text-align: left;
+  background-color: var(--bg);
+  padding-bottom: 3rem; /* создаёт пространство под титульным листом */
+  padding: 3rem;
+  text-align: left; /* заголовки и текст будут слева */
+  
+}
+
+.left-block {
+  display: flex;
+  flex-direction: column; /* логотип сверху, форма снизу */
+  gap: 2rem;              /* расстояние между лого и формой */
+  max-width: 350px;       /* ограничим ширину, чтобы не растягивалось */
+}
+
+.title-page .logo {
+  height: 120px;
+  margin-bottom: 2rem;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+.author,
+.date {
+  font-size: 1rem;
+  color: #444;
+}
+
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: var(--bg); /* Используем переменную для фона */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo-container .logo {
+  height: 50px;
+  object-fit: contain;
+  mix-blend-mode: multiply; /* Эффект "слияния" с фоном */
+}
+
+.nav a {
+  margin-left: 2rem;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav a:hover {
+  color: #0077cc;
+}
+
+:root {
+  --radius: 1.875rem;
+  --bg: #f5f5f5;
+}
+
+#wrapper {
+  transition: opacity 0.1s ease;
+   margin-top: -50px;
+}
+
+body {
+  height: 100vh;
+  margin: 0;
+  
+}
+
+.caption {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  background: rgba(0, 0, 0, 0.4); /* затемнённый полупрозрачный фон */
+  padding: 0.8rem 1rem;
+  width: 100%; /* на всю ширину блока */
+  box-sizing: border-box;
+  border-radius: 1rem 1rem 0 0; /* скругление только сверху */
+  text-align: center;
+  color: white;
+  font-size: 1.2rem;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+  pointer-events: none;
+}
+.option.active .caption {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.option {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-bottom: 2rem;
+  color: white;
+  transition: all 0.6s ease;
+  transform: scale(0.95);
+  opacity: 0.6;
+  background-position: center;
+  background-size: cover;
+  border-radius: var(--radius);
+}
+
+.option.active {
+  transform: scale(1);
+  opacity: 1;
+  z-index: 2;
+}
+
+.option {
+  flex: 1 1 var(--option-width);
+  background-size: cover;
+  background-position: center;
+  border-radius: var(--radius);
+  margin: var(--gutter);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  transform: scale(1);
+  opacity: 0.7;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.option.active {
+  transform: scale(1.2); /* увеличивается при активации */
+  opacity: 1;
+  z-index: 2;
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 300px;
+  margin-top: 0;
+}
+
+.register-form input,
+.register-form button {
+  padding: 0.8rem;
+  border-radius: 0.5rem;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.reviews-section {
+ padding-top: 1rem; /* можно уменьшить */
+  margin-top: 0;
+  background-color: var(--bg);
+  color: #333;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Раздел отзывов */
+#reviews {
+  margin-top: -200px; /* Сдвигает блок вверх */
+  scroll-margin-top: 600px; /* высота шапки + небольшой запас */
+  margin-top: -3rem; /* расстояние от предыдущего блока */
+  border-top: 2px solid #ddd; /* линия сверху */
+  padding: 1rem 2rem;
+  background-color: #f9f9f9;
+}
+
+/* Заголовок раздела */
+.reviews-header {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.reviews-header h2 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-size: 2rem;
+}
+
+.reviews-header p {
+  margin: 1rem;
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Список отзывов */
+.reviews-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem; /* Уменьшенный отступ между отзывами */
+}
+
+/* Карточка отзыва */
+.review {
+  background: #fff;
+  padding: 1rem;
+  border-radius: 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  margin: 0.5rem;
+}
+
+/* Текст отзыва */
+.review-text {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  color: #333;
+}
+
+/* Имя автора */
+.review-author {
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #666;
+  text-align: right;
+}
+
+#about {
+  scroll-margin-top: -900px;
+  text-align: center; /* выравнивание текста по центру */
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  color: #333;
+  line-height: 1.6;
+  font-family: Arial, sans-serif;
+}
+
+#about h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: #0077cc;
+}
+
+#about p {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.about-icons {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.icon-item {
+  position: relative;
+  cursor: pointer;
+  text-align: center;
+  max-width: 120px;
+}
+
+.icon-item .icon {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 0.5rem;
+}
+
+.icon-item::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 110%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #0077cc;
+  color: white;
+  padding: 0.5rem 0.8rem;
+  border-radius: 0.5rem;
+  white-space: nowrap;
+  font-size: 0.85rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+}
+
+.icon-item.active-tooltip::after {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal {
+  display: none; /* скрыто по умолчанию */
+  position: fixed;
+  z-index: 10000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.6);
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 400px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#reviewForm input, #reviewForm textarea, #reviewForm select, #reviewForm button {
+  width: 100%;
+  margin: 0.5rem 0;
+  padding: 0.6rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+#reviewForm button {
+  background-color: #0077cc;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+#reviewForm button:hover {
+  background-color: #005fa3;
+}
+
+.auth-container {
+  position: relative; /* можно убрать absolute, чтобы легче выровнять */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 360px;
+}
+
+
